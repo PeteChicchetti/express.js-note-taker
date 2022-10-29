@@ -7,4 +7,9 @@ notes.get('/', (req, res) => {
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+// POST Route for submitting notes
+notes.post('/', (req, res) => {
+    // Console log that a POST request was received
+    console.info(`${req.method} request received to save notes`);
 
+});
