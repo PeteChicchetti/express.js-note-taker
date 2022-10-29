@@ -1,4 +1,5 @@
 const notes = require('express').Router();
+const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 
 // GET Route for retrieving all the feedback
 notes.get('/', (req, res) => {
@@ -34,7 +35,7 @@ notes.post('/', (req, res) => {
     } else {
       res.json('Error posting note');
     }
-    
+
 });
 
 module.exports = notes;
