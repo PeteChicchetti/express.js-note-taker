@@ -17,7 +17,7 @@ const writeToFile = (destination, content) =>
  );
 
  /**
- *  Function to read data from a given a file and append some content
+ *  Function to read data from a given file and append the content
  *  @param {object} content The content you want to append to the file.
  *  @param {string} file The path to the file you want to save to.
  *  @returns {void} Nothing
@@ -34,7 +34,7 @@ const readAndAppend = (content, file) => {
         writeToFile(file, parsedData);
       }
     });
-    
+
   };
   
   module.exports = { readFromFile, writeToFile, readAndAppend };
