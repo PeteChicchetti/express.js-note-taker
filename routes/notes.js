@@ -26,7 +26,7 @@ notes.post('/', (req, res) => {
     readAndAppend(newNote, './db/db.json');
 
     const response = {
-        status: 'success, new note created',
+        status: 'success',
         body: newNote,
       };
   
@@ -34,7 +34,7 @@ notes.post('/', (req, res) => {
     } else {
       res.json('Error posting note');
     }
-
+    
 });
 
 module.exports = notes;
