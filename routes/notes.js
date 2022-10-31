@@ -1,6 +1,7 @@
 const notes = require('express').Router();
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
+const data = require('../db/db.json');
 
 // GET Route for retrieving all the feedback
 notes.get('/', (req, res) => {
@@ -19,11 +20,11 @@ notes.post('/', (req, res) => {
 
   // If all the required properties are present
   if (title && text) {
-    // Variable for the object we will save
+    // Variable for the new note being built and saved
     const newNote = {
       title,
       text,
-      note_id: uuid(),
+      id: uuid(),
     };
 
     readAndAppend(newNote, './db/db.json');
