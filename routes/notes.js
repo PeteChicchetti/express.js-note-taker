@@ -1,7 +1,7 @@
 const notes = require('express').Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
-const data = require('../db/db.json');
+
 
 // GET Route for retrieving all the feedback
 notes.get('/', (req, res) => {
@@ -12,8 +12,6 @@ notes.get('/', (req, res) => {
 
 // POST Route for submitting notes
 notes.post('/', (req, res) => {
-    // Console log that a POST request was received
-    console.info(`${req.method} request received to save notes`);
 
     // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
@@ -27,6 +25,7 @@ notes.post('/', (req, res) => {
       id: uuid(),
     };
 
+    // Read the current db file and then append the new 
     readAndAppend(newNote, './db/db.json');
 
     const response = {
@@ -40,5 +39,6 @@ notes.post('/', (req, res) => {
     }
 
 });
+
 
 module.exports = notes;
