@@ -4,6 +4,11 @@ This application uses express.js to build and organize information saved to a no
   ## Description
 
   This application allows the user to create notes and add them to a database.
+
+    https://glacial-wave-51267.herokuapp.com/
+    
+  ![image of note take home page](images/note-taker-home.png)
+  ![image of note take home page](images/note-taker-notes.png)
           
   ## Table of Contents
 
